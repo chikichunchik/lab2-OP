@@ -18,7 +18,7 @@ public class TaskSolver extends HttpServlet {
             Double b = Double.parseDouble(request.getParameter("b"));
             Double c = Double.parseDouble(request.getParameter("c"));
             Double d = Double.parseDouble(request.getParameter("d"));
-        } catch (NullPointerException e){
+        } catch (NumberFormatException e){
             response.sendError(400);
         }
 

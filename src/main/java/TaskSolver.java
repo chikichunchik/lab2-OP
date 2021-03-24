@@ -1,10 +1,11 @@
+import javax.jms.Session;
 import javax.servlet.ServletException;
+import javax.servlet.SessionCookieConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.HttpCookie;
 
 @WebServlet(name = "TaskSolver", value = "/TaskSolver")
 public class TaskSolver extends HttpServlet {
@@ -18,7 +19,18 @@ public class TaskSolver extends HttpServlet {
             Double b = Double.parseDouble(request.getParameter("b"));
             Double c = Double.parseDouble(request.getParameter("c"));
             Double d = Double.parseDouble(request.getParameter("d"));
-
+            Cookie cookie = new Cookie("a",a.toString());
+            Cookie cookie1 = new Cookie("b",b.toString());
+            Cookie cookie2 = new Cookie("c",c.toString());
+            Cookie cookie3 = new Cookie("d",d.toString());
+            cookie.setMaxAge(7000);
+            cookie1.setMaxAge(7000);
+            cookie2.setMaxAge(7000);
+            cookie3.setMaxAge(7000);
+            Cookie[] cookies = request.getCookies();
+            for(Cookie co : cookies){
+                System.out.println(co.getValue());
+            }
         try(PrintWriter out = response.getWriter()){
             out.println("<!DOCTYPE html>");
             out.println("<html>");

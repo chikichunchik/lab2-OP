@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Main page</title>
     </head>
     <body>
+    <%
+        Object a = session.getAttribute("a");
+    %>
         <img src="multimedia\task7.png">
         <form action="TaskSolver" method="get">
             <input type="hidden" name="taskNumber" value="7">

@@ -34,15 +34,16 @@ public class TaskSolver extends HttpServlet {
         try(PrintWriter out = response.getWriter()){
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            out.println(" <head><title>Servlet NewServlet</title></head>");
+            out.println(" <head><title>Result</title></head>");
             out.println(" <body>");
+            out.println("<h1> result = ");
             switch (request.getParameter("taskNumber")){
                 case "7":
-                    double result=Math.pow(4*Math.cosh(Math.sqrt(a/b))+3*Math.acos(c),d);
+                    double result=Math.pow(4*Math.cosh(Math.sqrt(Math.abs(a/b)))+3*Math.acos(d),c);
                     out.println(result);
                     break;
                 case "8":
-                    double result1=5*a/Math.sin(a)+Math.sqrt(Math.tanh(Math.abs(b)*c)/Math.log(d));
+                    double result1=(5*a/Math.sin(a)) + Math.sqrt(Math.tanh(Math.abs(b)*c)/Math.log(d));
                     out.println(result1);
                     break;
                 case "9":
@@ -50,7 +51,7 @@ public class TaskSolver extends HttpServlet {
                     out.println(result2);
                     break;
             }
-            out.println(" </body>");
+            out.println("</h1> </body>");
             out.println("</html>");
         }
     } catch (NumberFormatException e){

@@ -23,10 +23,10 @@ public class TaskSolver extends HttpServlet {
             Cookie cookie1 = new Cookie("b",b.toString());
             Cookie cookie2 = new Cookie("c",c.toString());
             Cookie cookie3 = new Cookie("d",d.toString());
-            cookie.setMaxAge(7000);
-            cookie1.setMaxAge(7000);
-            cookie2.setMaxAge(7000);
-            cookie3.setMaxAge(7000);
+            cookie.setMaxAge(172800);
+            cookie1.setMaxAge(172800);
+            cookie2.setMaxAge(172800);
+            cookie3.setMaxAge(172800);
             Cookie[] cookies = request.getCookies();
             for(Cookie co : cookies){
                 System.out.println(co.getValue());

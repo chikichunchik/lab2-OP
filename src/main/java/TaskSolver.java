@@ -19,6 +19,8 @@ public class TaskSolver extends HttpServlet {
             Double b = Double.parseDouble(request.getParameter("b"));
             Double c = Double.parseDouble(request.getParameter("c"));
             Double d = Double.parseDouble(request.getParameter("d"));
+            String taskN = request.getParameter("taskNumber");
+
             Cookie[] cookies = request.getCookies();
             Integer count=0;
             for(Cookie co : cookies){
@@ -29,47 +31,45 @@ public class TaskSolver extends HttpServlet {
                 }
             }
             count++;
-            Cookie cook = new Cookie("num",count.toString());
-            Cookie cookie = new Cookie("a" + count,a.toString());
-            Cookie cookie1 = new Cookie("b" + count,b.toString());
-            Cookie cookie2 = new Cookie("c" + count,c.toString());
-            Cookie cookie3 = new Cookie("d" + count,d.toString());
-            cook.setMaxAge(172800);
-            cookie.setMaxAge(172800);
-            cookie1.setMaxAge(172800);
-            cookie2.setMaxAge(172800);
-            cookie3.setMaxAge(172800);
-            response.addCookie(cookie);
-            response.addCookie(cookie1);
-            response.addCookie(cookie2);
-            response.addCookie(cookie3);
-            response.addCookie(cook);
-        try(PrintWriter out = response.getWriter()){
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println(" <head><title>Servlet NewServlet</title></head>");
-            out.println(" <body>");
-            switch (request.getParameter("taskNumber")){
-                case "7":
-                    double result=Math.pow(4*Math.cosh(Math.sqrt(a/b))+3*Math.acos(c),d);
-                    out.println(result);
-                    break;
-                case "8":
-                    double result1=5*a/Math.sin(a)+Math.sqrt(Math.tanh(Math.abs(b)*c)/Math.log(d));
-                    out.println(result1);
-                    break;
-                case "9":
-                    double result2=(Math.sin(Math.abs(a))+Math.cos(Math.sqrt(b)))/(2*Math.tan(c)+Math.pow(Math.E,d));
-                    out.println(result2);
-                    break;
+            Cookie cookieNum = new Cookie("num", count.toString());
+            Cookie cookieA = new Cookie("a" + count, a.toString());
+            Cookie cookieB = new Cookie("b" + count, b.toString());
+            Cookie cookieC = new Cookie("c" + count, c.toString());
+            Cookie cookieD = new Cookie("d" + count, d.toString());
+            cookieNum.setMaxAge(172800);                                    // 2 days
+            cookieA.setMaxAge(172800);
+            cookieB.setMaxAge(172800);
+            cookieC.setMaxAge(172800);
+            cookieD.setMaxAge(172800);
+            response.addCookie(cookieNum);
+            response.addCookie(cookieA);
+            response.addCookie(cookieB);
+            response.addCookie(cookieC);
+            response.addCookie(cookieD);
+            try(PrintWriter out = response.getWriter()){
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println(" <head><title>Task " + taskN + "</title></head>");
+                out.println(" <body>");
+                double result = 0;
+                switch (taskN){
+                    case "7":
+                        result=Math.pow(4*Math.cosh(Math.sqrt(a/b))+3*Math.acos(d),c);
+                        break;
+                    case "8":
+                        result=5*a/Math.sin(a)+Math.sqrt(Math.tanh(Math.abs(b)*c)/Math.log(d));
+                        break;
+                    case "9":
+                        result=(Math.sin(Math.abs(a))+Math.cos(Math.sqrt(b)))/(2*Math.tan(c)+Math.pow(Math.E,d));
+                        break;
+                }
+                out.println("<h3>Task " + taskN + "</h3><br>");
+                out.println("Result = " + result);
+                out.println("</body>");
+                out.println("</html>");
             }
-            out.println(" </body>");
-            out.println("</html>");
+        } catch (NumberFormatException e){
+            response.sendError(400);
         }
-    } catch (NumberFormatException e){
-        response.sendError(400);
-    }
-
-
     }
 }

@@ -8,7 +8,6 @@
     <body>
     <%
         Cookie [] cookies = request.getCookies();
-        PrintWriter wr = response.getWriter();
     %>
         <img src="multimedia\task7.png">
         <form action="TaskSolver" method="get">
@@ -61,7 +60,7 @@
                 }
                 %>
             </datalist>
-            <input type="submit" value="Solve task"/>
+            <input type="submit" value="Solve task 7"/>
         </form>
 
         <br> <br>
@@ -73,7 +72,7 @@
             b = <input type="text" name="b" list="listb"/> <br>
             c = <input type="text" name="c" list="listc"/> <br>
             d = <input type="text" name="d" list="listd"/> <br>
-            <input type="submit" value="Solve task"/>
+            <input type="submit" value="Solve task 8"/>
         </form>
 
         <br> <br>
@@ -85,7 +84,7 @@
             b = <input type="text" name="b" list="listb"/> <br>
             c = <input type="text" name="c" list="listc"/> <br>
             d = <input type="text" name="d" list="listd"/> <br>
-            <input type="submit" value="Solve task" />
+            <input type="submit" value="Solve task 9" />
         </form>
     </body>
 </html>

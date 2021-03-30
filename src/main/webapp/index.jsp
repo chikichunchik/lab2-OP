@@ -10,7 +10,7 @@
         Cookie [] cookies = request.getCookies();
     %>
         <img src="multimedia\task7.png">
-        <form action="TaskSolver" method="get">
+        <form action="TaskSolver" method="post">
             <input type="hidden" name="taskNumber" value="7">
             a = <input type="text" name="a" list="lista"/> <br>
             <datalist id = "lista">
@@ -66,7 +66,7 @@
         <br> <br>
 
         <img src="multimedia\task8.png">
-        <form action="TaskSolver" method="get">
+        <form action="TaskSolver" method="post">
             <input type="hidden" name="taskNumber" value="8">
             a = <input type="text" name="a" list="lista"/> <br>
             b = <input type="text" name="b" list="listb"/> <br>
@@ -78,7 +78,7 @@
         <br> <br>
 
         <img src="multimedia\task9.png">
-        <form action="TaskSolver" method="get">
+        <form action="TaskSolver" method="post">
             <input type="hidden" name="taskNumber" value="9">
             a = <input type="text" name="a" list="lista"/> <br>
             b = <input type="text" name="b" list="listb"/> <br>

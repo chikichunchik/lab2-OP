@@ -9,11 +9,11 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "TaskSolver", value = "/TaskSolver")
 public class TaskSolver extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Double a = Double.parseDouble(request.getParameter("a"));
             Double b = Double.parseDouble(request.getParameter("b"));
